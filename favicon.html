@@ -1,9 +1,21 @@
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="en">
 
-<h1>Page with Dynamic Favicon</h1>
+<head>
+    <meta charset="utf-8">
+    <title> - </title>
+    <link id="favicon" rel="icon">
 
-</body>
+    <!-- https://austingil.com/svg-favicons/ -->
+    <script>
+        const icon = new URL(decodeURIComponent(window.location.href)).searchParams.get('icon') || '✊'
+        const size = 64
+        document.querySelector('#favicon').href = `data:image/svg+xml;utf8,
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}">
+             <text y="${size}px" font-size="${size}"> ${icon} </text>
+            </svg>`.trim();
+    </script>
+
+</head>
+
 </html>
-
