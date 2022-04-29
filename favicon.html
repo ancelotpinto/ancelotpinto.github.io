@@ -9,10 +9,10 @@
     <!-- https://austingil.com/svg-favicons/ -->
     <script>
         const icon = new URL(decodeURIComponent(window.location.href)).searchParams.get('icon') || '✊'
-        const size = 64
+        const base = 16
         document.querySelector('#favicon').href = `data:image/svg+xml;utf8,
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}">
-             <text y="${size}px" font-size="${size}"> ${icon} </text>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${base * 4} ${base * 4}">
+             <text y="${base * 3}" font-size="${base * 3}"> ${icon} </text>
             </svg>`.trim();
     </script>
 
