@@ -7,8 +7,15 @@
     <link id="favicon" rel="icon">
 
     <!-- https://austingil.com/svg-favicons/ -->
+    <!-- https://developer.mozilla.org/en-US/docs/Web/SVG/Element/text -->
     <script>
-        const icon = new URL(decodeURIComponent(window.location.href)).searchParams.get('icon') || '✊'
+        const searchParams = new URL(decodeURIComponent(window.location.href)).searchParams;
+        const icon = searchParams.get('icon')
+        if (!icon) {
+            searchParams.set('icon', '✊')
+            window.location.search = searchParams.toString()
+        }
+
         const base = 16
         document.querySelector('#favicon').href = `data:image/svg+xml;utf8,
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${base * 4} ${base * 4}">
